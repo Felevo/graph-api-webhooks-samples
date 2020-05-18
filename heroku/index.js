@@ -52,11 +52,12 @@ app.post("/facebook", function (req, res) {
   // Process the Facebook updates here
   received_updates.unshift(req.body);
   data = {
+    video_id: req.body.entry[0].changes[0].value.id,
     event_time: req.body.entry[0].time,
-    status: req.body.entry[0].changes[0].status,
+    status: req.body.entry[0].changes[0].value.status,
   };
   received_updates.push(
-    "Data: " + JSON.stringify(data, null, 2) + " was saved to Amazon S3!"
+    "Data: " + JSON.stringify(data) + " was saved to Amazon S3!"
   );
   res.sendStatus(200);
 });
