@@ -13,6 +13,7 @@ var xhub = require("express-x-hub");
 
 app.set("port", process.env.PORT || 5000);
 app.listen(app.get("port"));
+console.log("test");
 
 app.use(xhub({ algorithm: "sha1", secret: process.env.APP_SECRET }));
 app.use(bodyParser.json());
@@ -38,8 +39,7 @@ app.get(["/facebook", "/instagram"], function (req, res) {
 });
 
 app.post("/facebook", function (req, res) {
-  alert("Facebook request body:", req.body);
-
+  console.log("Facebook request body:", req.body);
   if (!req.isXHubValid()) {
     console.log(
       "Warning - request header X-Hub-Signature not present or invalid"
