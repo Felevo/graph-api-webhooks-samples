@@ -51,6 +51,7 @@ app.post("/facebook", function (req, res) {
   console.log("request header X-Hub-Signature validated");
   // Process the Facebook updates here
   received_updates.unshift(req.body);
+  res.send("<div> Data was saved to Amazon S3!</div>");
   res.sendStatus(200);
 });
 
