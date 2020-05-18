@@ -57,7 +57,7 @@ app.post("/facebook", function (req, res) {
     "status": req.body.entry[0].changes[0].value.status,
   };
   received_updates.push(
-    "Data: " + JSON.stringify(data) + " was saved to Amazon S3!"
+    "Data was saved to Amazon S3!"
   );
   res.sendStatus(200);
 });
